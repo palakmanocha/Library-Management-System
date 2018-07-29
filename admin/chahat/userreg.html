@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="adminlogin.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <title>Student | Register</title>
+    <script type="text/javascript">
+
+      var isMobileValid = ()=>{
+        const n = 10;
+        var m = document.getElementById('mb').value.length;
+        if (m != n) {
+          alert('Incorrect');
+          return false;
+        }
+      }
+
+      var isPasswordValid = ()=>{
+        var p = document.getElementById('pass').value;
+        var i = p.length;
+        var specialch = 0;
+        if( (i < 8) && (i > 16) )
+        {
+          alert('Password must be 8-16 characters long!'+i);
+        }
+        for ( i = 0; i < p.length; i++) {
+          if (p[i] =='@' || p[i] == '#' || p[i] == '&' || p[i] == '_' ) {
+            specialch = specialch + 1 ;
+          }
+        }
+        if(specialch == 0){
+          alert('Must contain Special Character(@,#,&,_)');
+        }
+      }
+
+    </script>
+  </head>
+  <body>
+    <nav class="nav-bar">
+      <div class="nav1">
+        <img class="logo" height="80%" src="images/logo.png" alt="logo">
+        <p class="logo-text">
+          Library<br>Management<br>System
+        </p>
+      </div>
+      <div class="nav2">
+        <a href="index.html"> <img class="home" src="images/home-logo.png" alt="Home"> </a>
+      </div>
+    </nav>
+    <img src="images/book7.jpeg" class="bg-div">
+    <div class="main">
+      <img class="user" src="images/final.png" alt="">
+      <h1>Register Here</h1>
+      <form class=""  method="post">
+
+        <label for="name">Name</label>
+        <input id="nm" type="text"  name="name">
+
+        <label for="roll_no">Roll Number</label>
+        <input id="num" type="text"  name="roll_no">
+
+        <label for="branch">Branch</label>
+        <select name="branch">
+          <option class="options" value="">Select</option>
+          <option class="options" value="CSE">Computer Science</option>
+          <option class="options" value="IT">Information Technology</option>
+          <option class="options" value="ECE">Electronics & Communication</option>
+          <option class="options" value="EEE">Electrical & Electronics</option>
+          <option class="options" value="CSE">Mechanical</option>
+          <option class="options" value="BioTech">Bio-Technology</option>
+        </select>
+
+        <label for="year">Year</label>
+        <select name="year">
+          <option class="options" value="">Select</option>
+          <option class="options" value="1">First</option>
+          <option class="options" value="2">Second</option>
+          <option class="options" value="3">Third</option>
+          <option class="options" value="4">Fourth</option>
+        </select>
+
+        <label for="mob">Mobile No.</label>
+        <input id="mb" type="number" name="mob">
+        <img class="i"src="images/i-icon.png" alt="">
+        <div class="tooltip">Mobile Number must contain 10 digits</div>
+
+        <label for="dob">Date Of Birth</label>
+        <input id="db" type="date" name="dob">
+
+        <label for="user">Username</label>
+        <input id="user" type="text" name="user">
+        <img src="images/i-icon.png" alt="">
+        <div class="tooltip">Username not Available</div>
+
+        <label for="pass">Password</label>
+        <input id="pass" type="password" name="pass">
+        <img src="images/i-icon.png" alt="">
+        <div class="tooltip">Password must be of 8-12 digits</div>
+
+        <button type="button" onclick="isPasswordValid();" >Register</button>
+      </form>
+      <span class="a">Already have an Account? </span><a href="userlogin.html">login Here </a>
+    </div>
+
+  </body>
+</html>

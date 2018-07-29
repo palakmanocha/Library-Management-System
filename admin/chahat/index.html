@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>UIET | Library</title>
+    <link rel="stylesheet" href="navbar.css">
+    <link href="index.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="nav-bar">
+      <div class="nav1">
+        <img class="logo" height="80%" src="images/logo.png" alt="logo">
+        <p class="logo-text">
+          Library<br>Management<br>System
+        </p>
+      </div>
+      <div class="nav2">
+        <a href="index.html"> <img class="home" src="images/home-logo.png" alt="Home"> </a>
+      </div>
+    </nav>
+    <div class="head">
+      <div class="head-1">
+        <sup> <img width="170px" src="images/book.gif" alt="book-gif"> </sup>
+        <span class="head-text">UIET Library</span>
+      </div>
+    </div>
+    <div class="portal">
+      <a href="adminlogin.html">
+        <div class="box box-a">
+          <div class="image">
+            <img src="images/admin.png" alt="admin-logo">
+          </div>
+          <br>
+          <span class="text">Admin Login</span>
+        </div>
+      </a>
+      <div class="vl"></div>
+      <a href="userlogin.html">
+        <div class="box box-u">
+          <div class="image">
+            <img src="images/user.png" alt="user-logo">
+          </div>
+          <br>
+          <span class="text">User Login</span>
+        </div>
+      </a>
+  </div>
+  <div class="gallery">
+    <img src="images/book11.jpeg" alt="Background-Image">
+    <div class="img-container">
+      <img class="slides" src="http://www.iimc.nic.in/WriteReadData/userfiles/image/IMG_20160908_153740.jpg" alt="Gallery Image">
+      <img class="slides" src="https://www.magd.cam.ac.uk/sites/default/files/styles/1302x600/public/2017-09/magdalene_college_library.jpg?itok=1v6BgUME" alt="Gallery Image">
+      <img class="slides" src="http://www.iitismlib.ac.in/wp-content/themes/ism/images/slide7.png" alt="Gallery Image">
+    </div>
+      <button class="btn" id="btn1" onclick=changeIndex(-1)>&lt;</button>
+      <button class="btn" id="btn2" onclick="changeIndex(+1)">&gt;</button>
+  </div>
+  <script type="text/javascript">
+    var index=1;
+    var a = document.getElementsByClassName('slides');
+    var showImages = (n)=>{
+      for(var i=0;i<a.length;i++)
+      {
+        a[i].style.display="none";
+      }
+        a[index-1].style.display="block";
+    }
+    showImages(index);
+    function changeIndex(n) {
+      index=index+n;
+      if(index<=0){ index = a.length;}
+      if(index>a.length){ index=1;}
+      showImages(index);
+    }
+    var autoSlide = ()=>{
+      changeIndex(+1);
+      setTimeout(autoSlide, 4000);
+    }
+    autoSlide();
+  </script>
+  </body>
+</html>

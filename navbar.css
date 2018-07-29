@@ -1,0 +1,100 @@
+*{
+  box-sizing: border-box;
+}
+body{
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+.nav-bar{
+  position: fixed;
+  top: 0;
+  /* left:0; */
+  z-index: 100;
+  width: 100%;
+  height:12vh;
+  box-shadow: -1px 5px 7px rgba(0,0,0,0.7);
+  font-family: 'Montserrat', sans-serif;
+  /* background-color: #696969; */
+  background-color: /*#303030*/#171717;
+}
+.nav1{
+  /* border: 1px solid; */
+  width: 30%;
+  float: left;
+  height:100%;
+  font-size: 15px;
+}
+.logo{
+  margin: 1vh;
+  margin-left: 4vw;
+  float: left;
+}
+.logo-text{
+  margin-top: 2vh;
+  color: gold;
+}
+.nav2{
+  /* border: 1px solid; */
+  width: 70%;
+  float: right;
+  height:100%;
+}
+.home{
+  margin-right:3%;
+  margin-top: 3vh;
+  float: right;
+  height:50%;
+}
+.logout{
+  margin-right:3%;
+  margin-top: 2vh;
+  float: right;
+  height:70%;
+}
+.nav2>form{
+  display: inline-block;
+  float: right;
+  margin-top: 3.5vh;
+  margin-right: 0%;
+  width:25vw;
+  text-align: center;
+}
+.nav2>form>input[type=search]{
+  width: 15vw;
+  height: 5vh;
+  border-radius: 4px;
+  border:none;
+  padding:10px;
+  font-size: 15px;
+}
+.nav2>form>button{
+  width: 6.5vw;
+  height:5vh;
+  background:none ;
+  background-color: dodgerblue;
+  color:white;
+  font-size: 15px;
+  border:none;
+  border-radius: 4px;
+  text-align: center;
+}
+.nav2>form>button:focus{
+  outline: none;
+}
+.nav2>form>input:focus{
+  outline: none;
+}
+.nav2>form>button:hover{
+  animation-name: fade;
+  animation-duration:1s;
+
+}
+#footer{
+  bottom: 0;
+  position: relative;
+  height: 5vh;
+  color: white;
+  text-align: center;
+  font-size: 12px;
+  padding: 7px;
+}

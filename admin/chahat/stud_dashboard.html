@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Student</title>
+    <link rel="stylesheet" href="navbar.css">
+    <link href="stud_dashboard.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <script type="text/javascript">
+      var shownav=()=>{
+        document.getElementById('side-nav').style.width = "20vw";
+        document.getElementById('r-con').style.width = "80vw";
+        document.getElementById('sicon').style.display = "none";
+      }
+      var hidenav=()=>{
+        document.getElementById('side-nav').style.width = "0";
+        document.getElementById('r-con').style.width = "100%";
+        document.getElementById('sicon').style.display = "block";
+        // document.getElementById('side-nav').childNodes.style.display = "none";
+      }
+    </script>
+  </head>
+  <body>
+    <nav class="nav-bar">
+      <div class="nav1">
+        <img class="logo" height="80%" src="images/logo.png" alt="logo">
+        <p class="logo-text">
+          Library<br>Management<br>System
+        </p>
+      </div>
+      <div class="nav2">
+        <a href="index.html"><img class="home" src="images/home-logo.png" alt="Home"> </a>
+      </div>
+    </nav>
+    <div id="side-nav" class="side-nav">
+      <img onclick="hidenav()" style="margin-top:10px;float:right;" src="images/close.png" width="30px">
+      <div class="img-con">
+        <img class="img" src="images/book1.jpg" alt="user-pic">
+      </div>
+      <p>Welcome User</p>
+      <br>
+      <div class="menu">
+        <!-- <div id="m1" class="mn"></div> -->
+        <div id="s" class="li"><a href="#" >Search/issue</a></div>
+
+        <!-- <div id="m2" class="mn"></div> -->
+        <div id="r" class="li"><a href="#" >Reissue</a></div>
+
+        <!-- <div id="m3" class="mn"></div> -->
+        <div id="f" class="li"><a href="#" >Fine Payment</a></div>
+
+        <!-- <div id="m4" class="mn"></div> -->
+        <div id="b" class="li"><a href="#" >Buy a Book</a></div>
+
+        <!-- <div id="m5" class="mn"></div> -->
+        <div id="n" class="li"><a href="#" >Notifications</a></div>
+      </div>
+    </div>
+
+    <div class="main">
+      <!-- <img class="bg" src="images/book6.jpeg" alt=""> -->
+      <div id="r-con" class="right-container">
+        <img id="sicon" onclick="shownav()" src="images/menu.png" width="30px">
+
+        <div class="b-con">
+          <img class="b-img" src="http://www.coverquill.com/wp-content/uploads/2018/03/Meadow-250x375.jpg" alt="book">
+          <div class="black">
+            Book Details
+
+          </div>
+        </div>
+
+        <div class="b-con">
+          <img class="b-img" src="https://cdn.pastemagazine.com/www/system/images/photo_albums/30-best-book-covers-2016/large/2vegetariancover.png?1384968217" alt="book">
+          <div class="black">
+            Book Details
+
+          </div>
+        </div>
+
+        <div class="b-con">
+          <img class="b-img" src="http://static.harpercollins.com/harperimages/isbn/large/0/9780062320520.jpg" alt="book">
+          <div class="black">
+            Book Details
+
+          </div>
+        </div>
+
+        <div class="b-con">
+          <img class="b-img" src="http://authormarketingclub.com/members/wp-content/uploads/2015/05/Horror-CRACKED-CHEAP-BOOK-Covers-for-sale.jpg" alt="book">
+          <div class="black">
+            Book Details
+
+          </div>
+        </div>
+
+        <div class="b-con">
+          <img class="b-img" src="https://spark.adobe.com/images/landing/examples/how-to-book-cover.jpg" alt="book">
+          <div class="black">
+            Book Details
+
+          </div>
+        </div>
+
+        <div class="b-con">
+          <img class="b-img" src="https://99designs-blog.imgix.net/wp-content/uploads/2017/07/of-thee-e1500060441154.jpg?auto=format&q=60&fit=max&w=930" alt="book">
+          <div class="black">
+            Book Details
+
+          </div>
+        </div>
+
+        <div class="b-con">
+          <img class="b-img" src="https://i2.wp.com/www.casualoptimist.com/wp-content/uploads/2016/11/As-I-Descended-design-michelle-taormina.jpg" alt="book">
+          <div class="black">
+            Book Details
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <link rel="stylesheet" href="../navbar.css">
+    <link rel="stylesheet" href="../adminlogin.css">
+    <link rel="icon" href="../../images/a-icon.png">
+    <link rel="stylesheet" href="../student/userreg.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <title>Add Member</title>
+  </head>
+  <body>
+    <nav class="nav-bar">
+      <div class="nav1">
+        <img class="logo" height="80%" src="../images/logo.png" alt="logo">
+        <p class="logo-text">
+          Library<br>Management<br>System
+        </p>
+      </div>
+      <div class="nav2">
+        <a href="../index.html"><img class="home" src="../images/home-logo.png" alt=""></a>
+      </div>
+    </nav>
+    <img src="../images/s_login.jpg" class="bg-div">
+    <div class="main">
+      <img class="user" src="../images/final.png" alt="">
+      <h1>Add Admin</h1>
+      <form action="add.php" method="post">
+        <label for="name">Name</label>
+        <input id="nm" type="text"  name="name">
+
+        <label for="dgn">Designation</label>
+        <input id="dgn" type="text" name="dgn">
+
+        <label for="email">Email</label>
+        <input id="email" type="email" name="email">
+
+        <label for="mob">Mobile No.</label>
+        <input id="mb" type="number"  name="mob">
+
+        <label for="user">Username</label>
+        <input id="user" type="text" name="user">
+
+        <p id="use" style="display:none;" id="mess">
+          Username should contain atmost 10 characters
+        </p><br>
+
+        <label for="pass">Password</label>
+        <input id="pass" type="password" name="pass">
+
+          <p id="message" style="display:none;" id="mess">
+            Password with  8 to 16 characters ,one speacil character and one digit.
+          </p>
+
+        <button type="submit" >Add</button>
+      </form>
+      <span class="a">Already have an Account? </span><a href="index.html">login Here </a>
+    </div>
+<script type="text/javascript">
+
+  var passw = document.getElementById('pass');
+  passw.onfocus =function() {
+    document.getElementById("message").style.display = "block";
+  }
+  passw.onblur =function() {
+    document.getElementById("message").style.display = "none";
+  }
+  passw.onkeyup=function(){
+
+    var j = document.getElementById('pass').value.length;
+    var num = /[0-9]/g;
+    var special=/[@#$&]/g;
+    var d = document.getElementById('pass').value.match(num);
+    var s = document.getElementById('pass').value.match(special);
+
+  if(d==null || s==null || j<8 || j>16)
+  {
+    var m = document.getElementById('message');
+    m.classList.add("invalid");
+  }
+  else {
+    var m = document.getElementById('message');
+    m.classList.remove("invalid");
+    m.classList.add("valid");
+  }
+ }
+ var usern = document.getElementById('user');
+ usern.onfocus=function(){
+   document.getElementById('use').style.display="block";
+ }
+ usern.onblur=function(){
+   document.getElementById('use').style.display="none";
+ }
+ usern.onkeyup=function(){
+ var n= usern.value.length;
+ if(n>10)
+ {
+   document.getElementById('use').classList.add('invalid');
+   document.getElementById('use').classList.remove('valid');
+ }
+ else {
+   document.getElementById('use').classList.add('valid');
+   document.getElementById('use').classList.remove('invalid');
+ }
+}
+</script>
+  </body>
+</html>

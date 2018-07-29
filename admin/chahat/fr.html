@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <link rel="stylesheet" type="text/css" href="./css/master.css">
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  </head>
+
+  <body onload="init();">
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <nav>
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo center">AntiProxy</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li class="active"><a href="#">ADD STUDENT</a></li>
+            <li><a href="test.html">MARK ATTENDANCE</a></li>
+            <li><a href="hehe.html">CHECK ATTENDANCE</a></li>
+          </ul>
+        </div>
+      </nav>
+      
+      <div class="container">
+            <div class="card center">
+ 
+                    <div class="card-content">
+                            <div class="card-action">
+                                <a class="btn-floating btn-large waves-effect waves-light red" onclick="startWebcam();"><i class="material-icons">camera</i></a>
+                                <a class="btn-floating btn-large waves-effect waves-light red" onclick="snapshot();"><i class="material-icons">verified_user</i></a>
+                            </div>
+                            <div class="input-field col s6">
+                                    <input placeholder="Enter Name" type="text" class="validate" id="ip">
+                            </div>
+                            <p>
+                                <video onclick="snapshot(this);" width=300 height=300 id="video" controls autoplay></video>
+                                <br>
+                                <canvas  id="myCanvas" width="300" height="220"></canvas>
+                                <div id = "he"> </div>
+                            </p>
+                    </div>
+
+                  </div>
+      </div>
+  </body>
+  <script type="text/javascript">
+    //--------------------
+    // GET USER MEDIA CODE
+    //--------------------
+        navigator.getUserMedia = ( navigator.getUserMedia ||
+                           navigator.webkitGetUserMedia ||
+                           navigator.mozGetUserMedia ||
+                           navigator.msGetUserMedia);
+    var video;
+    var webcamStream;
+    function startWebcam() {
+      if (navigator.getUserMedia) {
+         navigator.getUserMedia (
+            // constraints
+            {
+               video: true,
+               audio: false
+            },
+            // successCallback
+            function(localMediaStream) {
+                video = document.querySelector('video');
+               video.src = window.URL.createObjectURL(localMediaStream);
+               webcamStream = localMediaStream;
+            },
+            // errorCallback
+            function(err) {
+               console.log("The following error occured: " + err);
+            }
+         );
+      } else {
+         console.log("getUserMedia not supported");
+      }  
+    }
+    //---------------------
+    // TAKE A SNAPSHOT CODE
+    //---------------------
+    var canvas, ctx;
+    function init() {
+      // Get the canvas and obtain a context for
+      // drawing in it
+      canvas = document.getElementById("myCanvas");
+      ctx = canvas.getContext('2d');
+    }
+    function snapshot() {
+      
+      ctx.drawImage(video, 0,0, canvas.width, canvas.height);
+      var img1 = new Image();
+      img1.src = canvas.toDataURL();
+      var ip = document.getElementById('ip').value;
+      datad = "{\r\n    \"image\":\"" + img1.src+ "\",\r\n    \"subject_id\":\"" + ip + "\",\r\n    \"gallery_name\":\"IT1\"\r\n}";
+      var settings = {
+          "async": true,
+          "crossDomain": true,
+          "url": "https://api.kairos.com/enroll",
+          "method": "POST",
+          "headers": {
+              "content-type": "application/json",
+              "app_id": "63e167c7",
+              "app_key": "cccf0f5ffbd82f6573d1ba8f80288e74",
+              "cache-control": "no-cache"
+          },
+          "processData": false,
+          "data": datad
+      }
+      $.ajax(settings).done(function (response) {
+        //
+        if((response.images[0].transaction.status) == "success"){
+            Materialize.toast("Student added succesfully by name " +response.images[0].transaction.subject_id+ " in gallery name " +response.images[0].transaction.gallery_name, 4000);
+            var width=response.images[0].transaction.width;
+            var height=response.images[0].transaction.height;
+            var x=response.images[0].transaction.topLeftX;
+            var y=response.images[0].transaction.topLeftY;
+            document.getElementById("he").style.width = width+'px';
+            document.getElementById("he").style.height = height+'px';
+            document.getElementById("he").style.top =y+'px';
+            document.getElementById("he").style.left =x +'px';
+            console.log(response.images[0].transaction.topLeftY);
+        }
+        
+        else{
+            Materialize.toast("Unable to add student", 4000);
+        }
+      });
+      console.log(img1.src);
+    }
+</script>
+<style type="text/css">
+    #he {
+        border:1px solid red;
+        position:absolute;
+        margin-top: 490px;
+        margin-left: 350px;
+    }
+</style>
+</html>

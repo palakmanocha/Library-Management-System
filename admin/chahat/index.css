@@ -1,0 +1,160 @@
+*{
+  box-sizing: border-box;
+}
+body{
+  margin: 0px;
+  background-image: url("images/bg-book-1.jpeg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background-position: center; */
+  font-family: 'Montserrat', sans-serif;
+}
+.head{
+  height:88vh;
+  margin-top:12vh;
+  text-align: center;
+  /* filter: brightness(40%)
+          blur(2px); */
+}
+.head-text{
+  font-size: 70px;
+  color: white;
+}
+
+.head-1{
+  background-color: rgba(0,0,0,0.1);
+  height:inherit;
+  padding: 23vh 0vh;
+}
+.portal{
+  height: 88vh;
+  padding-top: 15vh;
+  padding-left: 35vh;
+  padding-right: 35vh;
+  text-align: center;
+  background-color: rgba(245,245,245,1);
+}
+.box{
+  width: 25vw;
+  height: 50vh;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);
+  padding-top: 8vh;
+  background-color: white;
+  transition: 0.1s transform ease;
+}
+.box:hover{
+  transform:scale(1.01);
+  cursor: default;
+  color:rgba(0,0,0,0.8);
+}
+.box:hover .image{
+  opacity:0.6;
+}
+a{
+  color: black;
+}
+.box-a{
+  float: left;
+}
+.image{
+  opacity: 0.8;
+
+}
+.text{
+  font-size: 40px;
+  font-style: italic;
+  font-variant: small-caps;
+  font-weight: bold;
+}
+.vl{
+  border: 1px solid rgba(0,0,0,0.15);
+  height: 400px;
+  position: absolute;
+  left: 50%;
+  margin-top: -30px;
+}
+.box-u{
+  float: right;
+}
+.gallery{
+  height: 88vh;
+  margin: 0vh;
+}
+.gallery>img{
+  height:88vh;
+  width:100%;
+  position: absolute;
+  filter:blur(3px);
+}
+.img-container{
+  z-index: 3;
+  width:55%;
+  height:60vh;
+  margin: 0vh auto;
+  top: 14vh;
+  position: relative;
+}
+.slides{
+  height:100%;
+  width:100%;
+  position:absolute;
+  box-shadow: 0px 0px 5px 6px rgba(0, 0, 0, 0.5);
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+@keyframes fade {
+  from{opacity: 0.1;}
+  to{opacity: 1;}
+}
+.btn{
+  width: 22%;
+  height: 60vh;
+  font-size: 150px;
+  margin: 0px auto;
+  position: relative;
+  background-color: transparent;
+  color: transparent;
+  margin-top: -46vh;
+  border: 0px;
+}
+.btn:focus{
+  outline: 0px;
+}
+#btn1{
+  float: left;
+}
+#btn2{
+  float: right;
+}
+#btn1:hover{
+  cursor:url(images/user.png), auto;
+}
+#btn2:hover{
+  cursor:url(images/rarrow.png), auto;
+}
+
+/* Media Queries */
+@media screen and (max-width:500px) {
+  .nav1{
+    width: 50%;
+    font-size: 12px;
+  }
+  .head-text{
+    font-size: 50px;
+  }
+  .portal{
+    height: 100vh;
+    padding-top: 10vh;
+    padding-left: 0vh;
+    padding-right: 0vh;
+    text-align: center;
+  }
+  .box{
+    width: 70vw;
+    height: 50vh;
+    box-shadow: 0px 0px 0px 0px;height: 60%;
+    width: 60%;
+    padding-top: 8vh;
+  }
+}

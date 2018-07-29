@@ -1,0 +1,188 @@
+*{
+  box-sizing: border-box;
+}
+.side-nav{
+  position: fixed;
+  background-color: black;
+  height:88vh;
+  top:12vh;
+  width:20vw;
+  left:0;
+  float:left;
+  z-index: 75;
+  overflow: hidden;
+  transition: 0.5s;
+}
+.img-con{
+  margin: 0 auto;
+  margin-top: 14vh;
+  height:30%;
+  width:60%;
+  /* border:1px solid white; */
+  border-radius: 80px;
+}
+.img{
+    border-radius: 50%;
+    margin-top: 19vh;
+    height:20%;
+    width:20%;
+    box-shadow: 0px 0px 5px 2px rgba(255,255,255,0.7);
+}
+.side-nav>p{
+  color:white;
+  font-size:25px;
+  text-align: center;
+}
+.menu{
+  padding: 0px;
+  font-size:20px;
+}
+ a{
+  text-decoration: none;
+  color:white;
+}
+.li{
+  padding-left:10px;
+  padding-top:7px;
+  height:6vh;
+  width:99.7%;
+  /* border:1px solid white; */
+  margin-left:0px;
+  text-decoration: none;
+  color:white;
+  display: inline-block;
+  background-position: bottom left;
+}
+.li:hover{
+    animation-name: fade;
+    animation-duration:1s;
+}
+#s{
+  border-left: 5px solid #ead24c;
+}
+#r{
+  border-left: 5px solid #ec1b5a;
+}
+#f{
+  border-left: 5px solid #79aefe;
+}
+#b{
+  border-left: 5px solid #2d2366;
+}
+#n{
+  border-left: 5px solid #279636;
+}
+#s:hover{
+  background-color: #ead24c;
+  background-position: bottom right;
+}
+#r:hover{
+  background-color:#ec1b5a;
+}
+#f:hover{
+  background-color:  #79aefe;
+}
+#b:hover{
+  background-color:#314190;
+}
+#n:hover{
+  background-color:  #279636;
+}
+@keyframes fade{
+  from{opacity:0.1;}
+  to{opacity:1;}
+}
+/*.mn{
+  z-index: 1;
+  width: 0%;
+  height: 6vh;
+  position: absolute;
+  background-color: black;
+  transition: 0.5s;
+}
+#s:hover .mn{
+  width: 100%;
+  background-color: #ead24c;
+
+}
+#s:hover > #m1{
+  background-color: #ead24c;
+  width: 100%;
+}
+#r:hover #m2{
+  background-color:#ec1b5a;
+}
+#f:hover #m3{
+  background-color:  #79aefe;
+}
+#b:hover #m4{
+  background-color:#314190;
+}
+#n:hover #m5{
+  background-color:  #279636;
+}*/
+
+
+.main{
+  float:right;
+  width:100%;
+  min-height:87.5vh;
+  max-height: auto;
+  margin-top: 12vh;
+  position:relative;
+  z-index: 50;
+  transition: 0.5s;
+  overflow: hidden;
+  background-color: white;
+}
+.bg{
+  z-index: -1;
+  position: fixed;
+  filter:blur(5px);
+  height:100%;
+  width:100%;
+
+}
+.right-container{
+  padding: 10px;
+  float:right;
+  width: 80vw;
+  transition: 0.5s;
+  text-align: center;
+}
+#sicon{
+  margin-top: 10px;
+  display: none;
+  animation-name: fade-icon;
+  animation-duration: .4s;
+  position: absolute;
+}
+@keyframes fade-icon {
+  from{opacity: 0}
+    to{opacity: 0}
+}
+.b-con{
+  display: inline-block;
+  background-color: black;
+  width: 20vw;
+  height: 48vh;
+  margin: 20px;
+  margin-top: 40px;
+  z-index: 5;
+  overflow: hidden;
+  box-shadow: 0px 0px 15px 1px grey;
+  position: relative;
+  color: white;
+}
+.b-img{
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  position: absolute;
+  transition: 0.3s;
+}
+
+.b-img:hover {
+  opacity: 0.4;
+  }
